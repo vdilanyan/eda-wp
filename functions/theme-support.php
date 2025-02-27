@@ -1,5 +1,5 @@
 <?php
-add_theme_support("post-thumbnails"); 
+add_theme_support("post-thumbnails");
 add_image_size("blog-thumb", 200, 200, true);
 
 function get_homepage_fields(): array
@@ -16,3 +16,20 @@ function get_homepage_fields(): array
         'videos_title' => get_field('videos_title'),
     ];
 }
+
+function add_open_graph_meta_tags(): void
+{
+    global $post;
+    $custom_image_url = get_stylesheet_directory_uri() . '/assets/img/logo.jpg';
+    ?>
+    <meta property="og:title" content="<?php echo esc_attr(get_the_title($post->ID)); ?>"/>
+    <meta property="og:description" content="<?php echo esc_attr(get_the_excerpt($post->ID)); ?>"/>
+    <meta property="og:url" content="<?php echo esc_url(get_permalink($post->ID)); ?>"/>
+    <meta property="og:image" content="<?php echo esc_url($custom_image_url); ?>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
+    <?php
+}
+
+add_action('wp_head', 'add_open_graph_meta_tags');
+
