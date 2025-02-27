@@ -138,6 +138,7 @@ h6 {
 }
 :root {
   --chevron-posititon: 20px;
+  --masonry-gap: 20px;
 }
 @media (max-width: 480px) {
   :root {
@@ -149,7 +150,7 @@ h6 {
 }
 .masonry-gallery {
   column-count: 3;
-  column-gap: 20px;
+  column-gap: var(--masonry-gap);
 }
 @media (max-width: 991px) {
   .masonry-gallery {
@@ -163,12 +164,11 @@ h6 {
 }
 .masonry-gallery .item {
   break-inside: avoid;
-  margin-bottom: 1em;
+  margin-bottom: var(--masonry-gap);
   cursor: pointer;
 }
 .masonry-gallery .item img {
   width: 100%;
-  display: block;
   border-radius: 8px;
 }
 .lightbox-overlay {
