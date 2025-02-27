@@ -10,7 +10,7 @@ ready(function () {
     const galleryData = [];
 
     JSON.parse(wp_var.gallery).forEach((item) => {
-        galleryData.push({ url: item });
+        galleryData.push({ url: item.url });
     });
 
     console.log(galleryData);
