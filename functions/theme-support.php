@@ -21,13 +21,15 @@ function add_open_graph_meta_tags(): void
 {
     global $post;
     $custom_image_url = get_stylesheet_directory_uri() . '/assets/img/logo.jpg';
+    $publish_date = get_the_date(DATE_W3C, $post->ID);
     ?>
     <meta property="og:title" content="<?php echo esc_attr(get_the_title($post->ID)); ?>"/>
-    <meta property="og:description" content="<?php echo esc_attr(get_the_excerpt($post->ID)); ?>"/>
+    <meta property="og:description" content="<?php echo esc_attr(get_field('about_me_description', $post->ID)); ?>"/>
     <meta property="og:url" content="<?php echo esc_url(get_permalink($post->ID)); ?>"/>
     <meta property="og:image" content="<?php echo esc_url($custom_image_url); ?>"/>
-    <meta property="og:type" content="article"/>
+    <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="<?php bloginfo('name'); ?>"/>
+    <meta property='article:published_time' content="<?php echo esc_attr($publish_date); ?>"/>
     <?php
 }
 
