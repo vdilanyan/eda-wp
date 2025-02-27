@@ -1,4 +1,20 @@
 {% extends 'base.twig' %}
 {% block content %}
-    <div>home page</div>
+    {% include 'components/hero.twig' with {
+        'title': homepage.title,
+        'background_image': homepage.hero_background_image,
+    } %}
+    {% include 'components/about.twig' with {
+        'title': homepage.about_me_title,
+        'description': homepage.about_me_description,
+        'image': homepage.about_me_image
+    } %}
+    {% include 'components/gallery.twig' with {
+        'title': homepage.gallery_title,
+        'gallery': homepage.gallery,
+    } %}
+    {% include 'components/videos.twig' with {
+        'title': homepage.videos_title,
+        'videos': homepage.videos,
+    } %}
 {% endblock %}

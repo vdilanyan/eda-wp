@@ -1,0 +1,43 @@
+.hero {
+  background: var(--hero-background-image) no-repeat center/cover;
+  height: 100vh;
+  padding: 18px 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    color: white;
+    font-size: 32px;
+    margin: 32px 0 0;
+    padding: 0 24px;
+
+    @media (min-width: 992px) {
+      max-width: 600px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 32px;
+    }
+  }
+
+  .mask {
+    background-color: rgba(0, 0, 0, .75);
+  }
+
+  .social-media img {
+    filter: invert(0.85);
+
+    &:hover {
+      filter: invert(1);
+    }
+  }
+}
+
+#logo {
+  position: relative;
+  width: 340px;
+  border: 5px solid white;
+  border-radius: 8px;
+  z-index: 9999;
+}

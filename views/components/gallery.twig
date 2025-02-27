@@ -1,0 +1,25 @@
+<div id="gallery" class="gallery">
+    <div class="container">
+        <h3 class="text-center section-title">{{ title }}</h3>
+        <div class="masonry-gallery" id="masonryGallery">
+            {% for image in gallery %}
+                <div class="item">
+                    <img src="{{ image }}" alt="">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightboxOverlay" style="display: none;">
+        <span class="lightbox-close" id="lightboxClose">
+            <img src="{{ theme.link }}/assets/img/close.svg" alt="close">
+        </span>
+        <img class="lightbox-image" id="lightboxImage" alt="Gallery large view">
+        <button class="lightbox-prev" id="lightboxPrev">
+            <img src="{{ theme.link }}/assets/img/chevron-left.svg" alt="chevron-left">
+        </button>
+        <button class="lightbox-next" id="lightboxNext">
+            <img src="{{ theme.link }}/assets/img/chevron-right.svg" alt="chevron-right">
+        </button>
+    </div>
+</div>
