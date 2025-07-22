@@ -7,6 +7,10 @@ function ready(fn) {
 }
 
 ready(function () {
+    document.body.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = function () {
+        return false;
+    }
     const seeMore = document.getElementById('see-more-exhibitions');
     const exhibitionsGrid = document.getElementById('exhibitions-grid');
     const galleryData = [];
