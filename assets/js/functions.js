@@ -8,9 +8,19 @@ function ready(fn) {
 
 ready(function () {
     document.body.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = function () {
-        return false;
-    }
+    document.addEventListener('keydown', function(e) {
+        const winDevTools =
+            e.key === 'F12' ||
+            (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+            (e.ctrlKey && e.key === 'U');
+
+        const macDevTools = (e.metaKey && e.altKey && ['I','J','C','U'].includes(e.key));
+
+        if (winDevTools || macDevTools) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
     const seeMore = document.getElementById('see-more-exhibitions');
     const exhibitionsGrid = document.getElementById('exhibitions-grid');
     const galleryData = [];
