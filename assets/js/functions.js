@@ -1,3 +1,43 @@
+(function() {
+    function isKey(e, codes) {
+        return (
+            codes.includes(e.keyCode) ||
+            (typeof e.key === 'string' && codes.includes(e.key.toUpperCase().charCodeAt(0)))
+        );
+    }
+
+    function blockDevTools(e) {
+        // F12
+        if (e.keyCode === 123) {
+            e.preventDefault(); return false;
+        }
+
+        // Ctrl+Shift+[I(73),J(74),C(67)]
+        if (e.ctrlKey && e.shiftKey && isKey(e, [73, 74, 67])) {
+            e.preventDefault(); return false;
+        }
+
+        // Ctrl+U (view-source)
+        if (e.ctrlKey && isKey(e, [85])) {
+            e.preventDefault(); return false;
+        }
+
+        // Mac: ⌘ + Option + [I,J,C,U]
+        if (e.metaKey && e.altKey && isKey(e, [73, 74, 67, 85])) {
+            e.preventDefault(); return false;
+        }
+    }
+
+    // Disable right‐click
+    document.addEventListener('contextmenu', e => {
+        e.preventDefault();
+    }, { capture: true });
+
+    // Catch keydowns at both window and document, in capture phase
+    window.addEventListener('keydown', blockDevTools, { capture: true });
+    document.addEventListener('keydown', blockDevTools, { capture: true });
+})();
+
 function ready(fn) {
     if (document.readyState !== 'loading') {
         fn();
@@ -7,20 +47,6 @@ function ready(fn) {
 }
 
 ready(function () {
-    document.body.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', function(e) {
-        const winDevTools =
-            e.key === 'F12' ||
-            (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
-            (e.ctrlKey && e.key === 'U');
-
-        const macDevTools = (e.metaKey && e.altKey && ['I','J','C','U'].includes(e.key));
-
-        if (winDevTools || macDevTools) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    });
     const seeMore = document.getElementById('see-more-exhibitions');
     const exhibitionsGrid = document.getElementById('exhibitions-grid');
     const galleryData = [];
