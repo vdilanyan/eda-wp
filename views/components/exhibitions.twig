@@ -1,0 +1,18 @@
+<div class="exhibitions">
+    <div class="container">
+        <h3 class="section-title text-center">{{ title }}</h3>
+        <div id="exhibitions-grid" class="grid-container">
+            <div class="content">
+                {{ description }}
+            </div>
+        </div>
+        <button
+                id="see-more-exhibitions"
+                class="see-more transition"
+                data-more="{{ see_more_text }}"
+                data-less="{{ see_less_text }}"
+        >
+            {{ see_more_text }}
+        </button>
+    </div>
+</div>

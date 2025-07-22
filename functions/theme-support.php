@@ -14,6 +14,8 @@ function get_homepage_fields(): array
         'gallery' => get_field('gallery', 'option'),
         'videos' => get_field('videos', 'option'),
         'videos_title' => get_field('videos_title'),
+        'exhibitions_title' => get_field('exhibitions_title'),
+        'exhibitions_description' => get_field('exhibitions_description'),
     ];
 }
 

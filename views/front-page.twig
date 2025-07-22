@@ -9,6 +9,12 @@
         'description': homepage.about_me_description,
         'image': homepage.about_me_image
     } %}
+    {% include 'components/exhibitions.twig' with {
+        'title': homepage.exhibitions_title,
+        'description': homepage.exhibitions_description,
+        'see_more_text': see_more_text,
+        'see_less_text': see_less_text,
+    } %}
     {% include 'components/gallery.twig' with {
         'title': homepage.gallery_title,
         'gallery': homepage.gallery,

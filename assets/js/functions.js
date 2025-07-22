@@ -7,13 +7,13 @@ function ready(fn) {
 }
 
 ready(function () {
+    const seeMore = document.getElementById('see-more-exhibitions');
+    const exhibitionsGrid = document.getElementById('exhibitions-grid');
     const galleryData = [];
 
     JSON.parse(wp_var.gallery).forEach((item) => {
         galleryData.push({ url: item.url });
     });
-
-    console.log(galleryData);
 
     const images = document.querySelectorAll('.masonry-gallery img');
     const lightboxOverlay = document.getElementById('lightboxOverlay');
@@ -68,5 +68,14 @@ ready(function () {
 
     images.forEach((img, index) => {
         img.addEventListener('click', () => openLightbox(index));
+    });
+
+    seeMore.addEventListener('click', function() {
+        const moreText = this.dataset.more;
+        const lessText = this.dataset.less;
+        this.textContent = this.textContent.trim() === moreText
+            ? lessText
+            : moreText;
+        exhibitionsGrid.classList.toggle('expanded');
     });
 });

@@ -97,13 +97,27 @@ h6 {
 }
 .section-title {
   font-size: 48px;
+  line-height: 60px;
   margin: 0 0 32px;
   color: #1f1f1f;
 }
 @media (max-width: 767px) {
   .section-title {
     font-size: 32px;
+    line-height: 40px;
   }
+}
+.content {
+  font-size: 18px;
+}
+.content p {
+  line-height: 24px;
+}
+.content p:first-of-type {
+  margin-top: 0;
+}
+.content p:last-of-type {
+  margin-bottom: 0;
 }
 .about-me {
   margin-top: 80px;
@@ -135,6 +149,37 @@ h6 {
   .about-me .social-media {
     justify-content: center;
   }
+}
+.exhibitions {
+  margin-top: 80px;
+}
+.exhibitions .grid-container {
+  grid-template-rows: 0fr;
+  transition: 0.5s;
+}
+.exhibitions .grid-container.expanded {
+  grid-template-rows: 1fr;
+}
+.exhibitions .content {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 192px;
+  overflow: hidden;
+}
+.exhibitions .see-more {
+  display: block;
+  min-width: 120px;
+  padding: 10px 20px;
+  margin: 30px auto 0;
+  border-radius: 8px;
+  border: 1px solid #808080;
+}
+.exhibitions .see-more:hover {
+  background: #808080;
+  color: white;
+}
+.exhibitions .see-more.hidden {
+  display: none;
 }
 :root {
   --chevron-posititon: 20px;
@@ -229,6 +274,7 @@ h6 {
 .hero h1 {
   color: white;
   font-size: 32px;
+  line-height: 40px;
   margin: 32px 0 0;
   padding: 0 24px;
 }
@@ -240,6 +286,7 @@ h6 {
 @media (max-width: 767px) {
   .hero h1 {
     font-size: 24px;
+    line-height: 32px;
     padding: 0 12px;
   }
 }

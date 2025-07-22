@@ -117,10 +117,28 @@ h6 {
 
 .section-title {
   font-size: 48px;
+  line-height: 60px;
   margin: 0 0 32px;
   color: #1f1f1f;
 
   @media (max-width: 767px) {
     font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.content {
+  font-size: 18px;
+
+  p {
+    line-height: 24px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
