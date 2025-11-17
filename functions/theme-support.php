@@ -5,14 +5,13 @@ add_image_size('blog-thumb', 200, 200, true);
 function get_homepage_fields(): array
 {
     return [
-        'hero_background_image' => get_field('hero_background', 'option'),
+        'hero_background_image' => get_field('hero_background'),
         'title' => get_field('title'),
         'about_me_title' => get_field('about_me_title'),
-        'about_me_image' => get_field('about_me_image', 'option'),
+        'about_me_image' => get_field('about_me_image'),
         'about_me_description' => get_field('about_me_description'),
         'gallery_title' => get_field('gallery_title'),
-        'gallery' => get_field('gallery', 'option'),
-        'videos' => get_field('videos', 'option'),
+        'videos' => get_field('yt_videos'),
         'videos_title' => get_field('videos_title'),
         'exhibitions_title' => get_field('exhibitions_title'),
         'exhibitions_description' => get_field('exhibitions_description'),
@@ -37,3 +36,11 @@ function add_open_graph_meta_tags(): void
 
 add_action('wp_head', 'add_open_graph_meta_tags');
 
+function translate_static_text($en, $am = '')
+{
+    if (!empty($am) && ICL_LANGUAGE_CODE === 'hy') {
+        return $am;
+    }
+
+    return $en;
+}

@@ -1,0 +1,15 @@
+<div id="albums" class="albums-section">
+    <div class="container">
+        <h3 class="text-center section-title">{{ title }}</h3>
+        <div class="flex-container albums">
+            {% for album in albums %}
+                <div class="album relative-parent">
+                    <a href="{{ album.link }}" class="absolute"></a>
+                    <div class="mask absolute"></div>
+                    <img src="{{ album.thumbnail.src }}" alt="{{ album.post_title }}">
+                    <h3 class="album-title text-center">{{ album.post_title }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,3 +1,7 @@
 <header itemscope itemtype="https://schema.org/WPHeader" class="container flex-container">
+    <a href="{{ site.url }}#albums" class="back-to-gallery">
+        <img src="{{ theme.link }}/assets/img/back.svg" alt="chevron left">
+        {{ function('translate_static_text', 'Back to gallery', 'Վերադառնալ պատկերասրահ') }}
+    </a>
     {% include 'components/language-switcher.twig' %}
 </header>

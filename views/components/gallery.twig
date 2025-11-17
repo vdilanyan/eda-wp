@@ -1,6 +1,5 @@
 <div id="gallery" class="gallery">
     <div class="container">
-        <h3 class="text-center section-title">{{ title }}</h3>
         <div class="masonry-gallery" id="masonryGallery">
             {% for image in gallery %}
                 <div class="item">
@@ -14,7 +13,10 @@
         <span class="lightbox-close" id="lightboxClose">
             <img src="{{ theme.link }}/assets/img/close.svg" alt="close">
         </span>
-        <img class="lightbox-image" id="lightboxImage" alt="Gallery large view">
+        <div class="lightbox-image">
+            <img id="lightboxImage" alt="Gallery large view">
+            <span id="lightboxCaption" class="lightbox-caption"></span>
+        </div>
         <button class="lightbox-prev" id="lightboxPrev">
             <img src="{{ theme.link }}/assets/img/chevron-left.svg" alt="chevron-left">
         </button>

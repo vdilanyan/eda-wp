@@ -17,6 +17,16 @@
         use Timber\Timber;
 
         $context = Timber::get_context();
+        $languages = apply_filters(
+            'wpml_active_languages',
+            null,
+            [
+                'skip_missing' => 1,
+                'orderby' => 'code'
+            ]
+        );
+
+        $context['languages'] = $languages;
 
         Timber::render('layout/header.twig', $context); ?>
 

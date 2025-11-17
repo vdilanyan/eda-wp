@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <div class="gallery-template">
+        <div class="container">
+            <h1 class="section-title">
+                {{ title }}
+            </h1>
+            <p class="description">
+                {{ description }}
+            </p>
+        </div>
+
+        {% include 'components/gallery.twig' with {
+            'gallery': album,
+        } %}
+    </div>
+{% endblock %}

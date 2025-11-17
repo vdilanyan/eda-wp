@@ -22,6 +22,9 @@ body {
   position: relative;
   margin: 0;
 }
+body.home header a.back-to-gallery {
+  display: none;
+}
 main {
   margin-bottom: auto;
 }
@@ -150,6 +153,38 @@ h6 {
     justify-content: center;
   }
 }
+.albums-section {
+  margin-top: 80px;
+}
+.albums-section .albums {
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+.albums-section .albums .album {
+  flex: 0 0 calc((100% - 60px) / 3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.albums-section .albums .album .mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 888;
+}
+.albums-section .albums .album img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.albums-section .albums .album .album-title {
+  color: white;
+  font-size: 30px;
+  margin: 0;
+  padding: 0 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  z-index: 900;
+}
 .exhibitions {
   margin-top: 80px;
 }
@@ -226,11 +261,25 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 10000;
 }
 .lightbox-image {
-  max-width: 90%;
-  max-height: 90%;
+  position: relative;
+  height: 90vh;
+}
+.lightbox-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.lightbox-image .lightbox-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 15px;
 }
 .lightbox-close {
   position: absolute;
@@ -367,6 +416,9 @@ h6 {
   width: 100%;
   height: 100%;
 }
+footer {
+  border-top: 1px solid #ccc;
+}
 footer .copyright {
   padding-top: 32px;
   padding-bottom: 32px;
@@ -396,4 +448,18 @@ header {
   right: 0;
   padding-top: 24px;
   z-index: 9999;
+}
+header a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4f4f4f;
+}
+.gallery-template {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.gallery-template .description {
+  max-width: 800px;
+  line-height: 1.5;
 }

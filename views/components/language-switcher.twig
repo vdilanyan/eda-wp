@@ -1,8 +1,7 @@
-<div class='language-switcher flex-container'>
-    <a href="{{ site.url }}/">
-        <img src="{{ theme.link }}/assets/img/en.svg" alt="English Flag" />
-    </a>
-    <a href="{{ site.url }}/hy">
-        <img src="{{ theme.link }}/assets/img/hy.svg" alt="Armenian Flag" />
-    </a>
+<div class="language-switcher flex-container">
+    {% for code, lang in languages %}
+        <a href="{{ lang.url }}">
+            <img src="{{ theme.link }}/assets/img/{{ code }}.svg" alt="{{ lang.native_name }}" />
+        </a>
+    {% endfor %}
 </div>

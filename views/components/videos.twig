@@ -6,7 +6,7 @@
                 <div class="video-item">
                     <div class="iframe-container">
                         <iframe
-                            src="https://www.youtube-nocookie.com/embed/{{ item.video | e('url') }}?rel=0&modestbranding=1&playsinline=1&hl=en&enablejsapi=1&origin={{ function('home_url') | url_encode }}"
+                            src="https://www.youtube-nocookie.com/embed/{{ item.yt_video | e('url') }}?rel=0&modestbranding=1&playsinline=1&hl=en&enablejsapi=1&origin={{ function('home_url') | url_encode }}"
                             title="{{ item.title is defined and item.title ? item.title : 'YouTube video player' }}"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
