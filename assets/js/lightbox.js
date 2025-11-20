@@ -10,7 +10,6 @@ ready(function () {
     const galleryData = [];
 
     JSON.parse(wp_var.gallery).forEach((item) => {
-        console.log(item);
         galleryData.push({ url: item.url, title: item.title });
     });
 
@@ -23,16 +22,27 @@ ready(function () {
     const lightboxCaption = document.getElementById('lightboxCaption');
 
     let currentIndex = 0;
+    let lightboxOpen = false;
 
     function openLightbox(index) {
         currentIndex = index;
         lightboxImage.src = galleryData[currentIndex].url;
-        lightboxOverlay.style.display = 'flex';
         lightboxCaption.innerText = galleryData[currentIndex].title;
+        lightboxOverlay.style.display = 'flex';
+        lightboxOpen = true;
+
+        history.pushState({ lightbox: true }, '');
     }
 
     function closeLightbox() {
+        if (!lightboxOpen) return;
+
         lightboxOverlay.style.display = 'none';
+        lightboxOpen = false;
+
+        if (history.state && history.state.lightbox) {
+            history.back();
+        }
     }
 
     function goNext(event) {
@@ -63,11 +73,22 @@ ready(function () {
         }
     }
 
-    document.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('popstate', () => {
+        if (lightboxOpen) {
+            closeLightbox();
+        }
+    });
+
+    lightboxOverlay.addEventListener('click', (event) => {
+        if (event.target === lightboxOverlay) {
+            closeLightbox();
+        }
+    });
+
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', goPrev);
     lightboxNext.addEventListener('click', goNext);
-    lightboxOverlay.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', handleKeyDown);
 
     images.forEach((img, index) => {
         img.addEventListener('click', () => openLightbox(index));
