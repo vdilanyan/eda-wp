@@ -21,6 +21,7 @@ body {
   line-height: 1.2;
   position: relative;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
 }
 body.home header a.back-to-gallery {
   display: none;
